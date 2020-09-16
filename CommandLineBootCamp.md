@@ -17,7 +17,11 @@ By default, the server uses BASH (Bourne Again SHell) to interpret your commands
 - At the prompt (where the `$` always is), the up/down arrows allow you to scroll through the commands you have run during the session. 
 - To put your cursor at the beginning of the line while you're typing at the prompt: `Ctrl + a`
 - To put your cursor at the end of the line while you're typing at the prompt: `Ctrl + e`
-- While you're typing a file or directory name that might be really long, you can type the first few characters, then press `tab` and it should auto-complete if you typed enough characters for it to figure it out. This is called tab completion. 
+- While you're typing a file or directory name that might be really long, you can type the first few characters, then press `tab` and it should auto-complete if you typed enough characters for it to figure it out. This is called tab completion.
+- To go to the parent directory of the current directory ("up" one directory in the directory structure):
+
+    $ cd ..
+
 - To go to the most recent directory you were in before the current one (especially useful if you went from /omg/super/long/path to /here/is/another/long/path in one command):
 
      $ cd -
