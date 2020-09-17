@@ -20,11 +20,11 @@ Scripts are run as follows:
     
 ### Text editors
 
-Anything that will save your file as a plain text. There are several options on the server already (nano, emacs, vim). These are applications to be used in the terminal and the files are saved in the current directory you're in when you open the application. On the other hand, there are several options from GUIs (TextWrangler, XCode, TextEdit, etc) that you can use on the local computer. These feel more intuitive to people, but you must then copy the script onto the server (using `scp`) if you want to execute it there. Microsoft Word does not count!
+Anything that will save your file as a plain text. There are several options on the server already (nano, emacs, vim). These are applications to be used in the terminal *only* and the files are saved in the current directory you're in when you open the application. On the other hand, there are several options orf GUIs (TextWrangler, XCode, TextEdit, etc) that you can use on the local computer. These feel more intuitive to people, but you must then copy the script onto the server (using `scp`) if you want to execute it there. 
 
 ### Variables
 
-    varName="value"
+    varName=value
 
 - varName stores "value" for the duration of your shell session
 - No spaces around =
