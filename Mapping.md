@@ -10,7 +10,7 @@ We will use the module system to set up our environment:
 
 ## Map reads with BWA
 
-**Make sure you're back in your VarCall/ directory**
+**Make sure you're back in your `VarCall/` directory**
 
 First, set up the environment with the software we will use. BWA and samtools. In order to run the analysis, we need to index the reference sequence
 
@@ -59,24 +59,28 @@ While in the samtools tview, use the `?` to open the menu and `q` to exit. Once 
 
     $ module load Tools/Picard/2.18.0
     $ mkdir 02_dedup
-    $ java -jar $Picard_jar MarkDuplicates I=01_aligned/516950.sorted.bam O=02_dedup/516950.dedup.bam M=02_dedup/516950.metrics
-    $ samtools index 02_dedup/516950.dedup.bam
+    $ java -jar $Picard_jar MarkDuplicates I=01_aligned/${acc}.sorted.bam O=02_dedup/${acc}.dedup.bam M=02_dedup/${acc}.metrics
+    $ samtools index 02_dedup/${acc}.dedup.bam
     
 **Run for the other sample!**
 
+:computer: Forgot which sample number was stored in the acc variable? The echo command will show you!
+
+    $ echo ${acc}
+
 # Exercises
 
-These exercises are really just designed to try to get you to understand what mapping does with the reads and what a potential variant might look like in a BAM file. 
+These exercises are really just designed to try to get you to understand what mapping does with the reads and what a potential variant might look like in a BAM file. There are fairly detailed.
 
 Bitwise flag meaning: https://broadinstitute.github.io/picard/explain-flags.html
 
-1. Find bitwise flags for a few reads in any bam file and decode them using the link above. On the website, you can check only one box at a time to see what an individual property’s value is.
+1. During mapping, each read is tagged with a bitwise flag that contains information about the read. Find bitwise flags for a few reads in any bam file and decode them using the link above. On the website, you can check only one box at a time to see what an individual property’s value is.
 
-2. Using samtools tview, go to chr2:7271 in 516950.dedup.bam by pressing ‘g’ then typing chr2:7271[Enter]. Compare that with chr2:1018541. Why do you think they are different in terms of coverage and mapping quality? Find a few other areas that look interesting to you and take note of their position.
+2. Using samtools tview, go to chr2:7271 in 516950.dedup.bam by pressing ‘g’ then typing chr2:7271[Enter]. Compare that with chr2:1018541. Why do you think they are different in terms of coverage and mapping quality? Find a few other areas that look interesting to you and take note of their position if you'd like to go back after the SNP calling step and see if a SNP was indeed called.
 
 3. Do these regions look the same in sample 660389?
 
 4. How many unique bitwise flags are there in 516950.sorted.bam file? The dedupped bam file? How many reads were marked as duplicates? (Hint: the flags are the sum of the value of each individual property assigned to a read; duplicate = 1024)
 
-5. Write a script to run the alignment and dedup steps on both genotypes.
+5. Write a bash script to run the alignment and dedup steps on both genotypes. To encourage organization and reproducibility, make a directory to keep your script(s) in and run from there :)
 
