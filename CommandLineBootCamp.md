@@ -214,7 +214,7 @@ http://www.ensembl.org/info/website/upload/gff.html
 
 1. How many lines are in Ahal.gff? Characters?
 2. How many of each type of feature (column 3) are there?
-3. How many CDS’s are there within scaffold1?
+3. How many CDS’s are there within scaffold_1? Beware! There’s also scaffold_10, scaffold_11, etc
 
 Extra practice:
 
