@@ -70,7 +70,7 @@ While in the samtools tview, use the `?` to open the menu and `q` to exit. Once 
 
 # Exercises
 
-These exercises are really just designed to try to get you to understand what mapping does with the reads and what a potential variant might look like in a BAM file. There are fairly detailed.
+These exercises are really just designed to try to get you to understand what mapping does with the reads, the almost dizzying amount of information encoded in the files, and what a potential variant might look like in a BAM file. These are fairly detailed.
 
 Bitwise flag meaning: https://broadinstitute.github.io/picard/explain-flags.html
 
@@ -80,7 +80,7 @@ Bitwise flag meaning: https://broadinstitute.github.io/picard/explain-flags.html
 
 3. Do these regions look the same in sample 660389?
 
-4. How many unique bitwise flags are there in 516950.sorted.bam file? The dedupped bam file? How many reads were marked as duplicates? (Hint: the flags are the sum of the value of each individual property assigned to a read; duplicate = 1024)
+4. How many unique bitwise flags are there in 516950.sorted.bam file? The dedupped bam file (516950.dedup.bam)? How many reads were marked as duplicates? (Hint: the flags are the sum of the value of each individual property assigned to a read; duplicate = 1024)
 
-5. Write a bash script to run the alignment and dedup steps on both genotypes. To encourage organization and reproducibility, make a directory to keep your script(s) in and run from there :)
+5. Practice writing bash script to run the alignment and dedup steps on both genotypes. To encourage organization and reproducibility, make a directory to keep your script(s) in and run from there :)
 
