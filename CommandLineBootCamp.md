@@ -12,7 +12,7 @@ Reminder: our server runs on a Linux operating system. The following commands ar
 
 By default, the server uses BASH (Bourne Again SHell) to interpret your commands to tell the computer what to do. 
 
-### Pro tips for working (quickly) in the terminal
+### :computer: Pro tips for working quickly in the terminal :computer:
 
 - At the prompt (where the `$` always is), the up/down arrows allow you to scroll through the commands you have run during the session. 
 - To put your cursor at the beginning of the line while you're typing at the prompt: `Ctrl + a`
