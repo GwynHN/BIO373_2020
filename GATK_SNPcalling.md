@@ -21,26 +21,41 @@ Now we use several tools in GATK to discover variants, group the samples, and fi
 
 First, you need to call variants in each samples. This creates a gVCF file. The step looks at the base that is called in the read that mapped at each site and determines whether there is a variant or not. 
 
-   ## $ module load Variants/GATK/3.8.1.0
-    $ module load Variants/GATK/4.1.8.0
+    $ module load Variants/GATK/3.8.1.0
     $ mkdir 03_callSNPs
     $ acc=516950
     $ java -jar $GATK_jar -T HaplotypeCaller -R 00_input/MedtrChr2.fa -I 02_dedup/${acc}.dedup.bam -ERC GVCF -nct 2 -o 03_callSNPs/${acc}.g.vcf.gz
     
-    GATK4
-% gatk HaplotypeCaller -R 00_input/MedtrChr2.fa -I 02_dedup/${acc}.dedup.bam -ERC GVCF -O 03_callSNPs/${acc}.g.vcf.gz
-[September 21, 2020 6:08:25 PM CEST] org.broadinstitute.hellbender.tools.walkers.haplotypecaller.HaplotypeCaller done. Elapsed time: *12.06 minutes*. 
-seems to use more than 1 thread...GATK4 has a ridiculous parallelization argument and takes longer!!!!!. what did they do?!?
+This takes ~10 minutes for each sample. Maybe add this to your bash script and grab a coffee??
 
 **Run again for sample 660389**
 
-Note: you can view the contents of a gVCF or VCF using zless. It is a regular text file that has been compressed. This is different than trying to view the BAM files before.
 
 ## Joint genotyping
 
 This steps takes the input of gVCFs from each sample and combines them. This step recalculates some statistics and gives a more confident call of the variant at a particular site.
 
     $ java -jar $GATK_jar -T GenotypeGVCFs -R 00_input/MedtrChr2.fa -V 03_callSNPs/516950.g.vcf.gz -V 03_callSNPs/660389.g.vcf.gz -o 03_callSNPs/04_raw_variants.vcf.gz
+
+# VCF format
+
+All lines beginning with `##` contain information about how and when the VCF was generated and information about the flags included in the file. The single line with `#` tells you what each column of the following lines contains. Every line *without* a `#` is a variant.
+
+The Genotype field (column 9) is important. Other flags may appear, but these are the minimum that should be included.\:
+
+    
+    GT: genotype 0/0 = homozygous ref; 0/1 = heterozygous; 1/1 = homozygous alt
+    AD: allele depth; number of reads containing ref, alt base
+    DP: total depth; total number of reads covering site
+    GQ: genotype quality; difference between lowest and second lowest PL
+    PL: genotype likelihood; what’s the probability it is NOT the correct genotype.
+	The lowest is always 0.
+    
+
+
+:computer: You can view the contents of a VCF using zless. It is a regular text file that has been compressed. To search in the file using `zless`, type `/` when the file is loaded on the screen and type your search. i.e. `/CHROM` will take you to the line which shows the column names and the variants called in each sample. 
+
+
 
 # Exercises Part 1
 
