@@ -206,7 +206,7 @@ Sometimes, you'll have to pipe commands to make it work:
 
 # Exercises
 
-GFF file located in /srv/gstore/projects/p3662/SNPcalling/reference
+GFF file located in /scratch/bio373_2020/data/SNPcalling/reference
 
 GFF files contains information on features of a sequence: genes, introns, etc. Take a look and familiarize yourself with the format.
 
@@ -220,7 +220,7 @@ Extra practice:
 
 Zip the file and modify your commands to answer the same questions!
 
-    $ cp /srv/gstore/projects/p3662/SNPcalling/reference/Ahal.gff YOUR_DIRECTORY/
+    $ cp /scratch/bio373_2020/data/SNPcalling/reference/Ahal.gff YOUR_DIRECTORY/
     $ cd YOUR_DIRECTORY
     $ gzip Ahal.gff
 
