@@ -59,7 +59,7 @@ The Genotype field (column 9) is important. Other flags may appear, but these ar
 
 # Exercises Part 1
 
-1. Choose a SNP from the VCF (not gVCF) file (maybe one in the regions we looked at in the bam files earlier…). Take note of the variant quality (QD in INFO field). For an individual, take note of the genotype quality (GQ) and depth (AD and DP) as well. View the bam file using samtools tview and observe how the results we get from GATK compare to what you can see at those positions in a bam file. Are the genotypes what you would expect just by looking at the bam file? (7317 and 1018580 are searchable in the VCF)
+1. Here, we'll look in the VCF (04_raw_variants.vcf.gz) and take note of the information contained in the file (which is an overwhelming amount!). I like to get to the variants by searching for CHROM (`/CHROM`). You can look at any SNP, but I suggest searching for 7317, then 1018580. Those sites correspond to where we looked at in the BAM file in the mapping exercises. Take note of the variant quality (QD in INFO field). For an individual, take note of the genotype quality (GQ) and depth (AD and DP) as well. If you'd like, view the BAM file again using `samtools tview` and observe how the results we get from GATK compare to what you can see at those positions in a BAM file. Are the genotypes what you would expect just by looking at the BAM file?  
 
 2. How many variants were discovered in this sample set?
 
@@ -74,7 +74,9 @@ This last step flags the variants that are low confidence. It will put the filte
 
 # Exercises Part 2
 
-1. Count the number of variants that failed each of the filters we applied (those applied to stats in the INFO field).
+1. Here, we'll look in the filtered VCF (05_variants_filtered.vcf.gz). This time, see if you notice what changed after the filtration step. For example, the FILTER field should now have a value (not just '.'). If you search for `FT`, you'll see in either samples the GT should have become a NoCall (./.).
 
-2. Count the number of unique genotypes (0/0, 0/1, etc) that passed the genotype filter (GQ) for each sample.
+2. Count the number of variants that failed each of the filters we applied (those applied to stats in the INFO field).
+
+3. Count the number of genotypes that passed the genotype filter (GQ) for each sample. This one's a bit tricky due to the `FT` behavior noted above!
 
