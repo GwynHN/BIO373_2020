@@ -224,4 +224,4 @@ Zip the file and modify your commands to answer the same questions!
     $ cd YOUR_DIRECTORY
     $ gzip Ahal.gff
 
-Answers will be uploaded SOMEWHERE
+Answers can be found on the server here: `/scratch/bio373_2020/data/SNPcalling/answers/CommandLineAnswers.txt`
