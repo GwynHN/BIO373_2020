@@ -72,3 +72,7 @@ For the quality score encoding: https://support.illumina.com/help/BaseSpace_OLH_
 
 3. How many bases are in the reference sequence? How many missing bases (N)? Don’t forget ‘\n’ is considered a character!
 
+
+## Answers 
+
+On the server: `/scratch/bio373_2020/data/SNPcalling/answers/fastAQ.txt`
