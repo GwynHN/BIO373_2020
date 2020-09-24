@@ -84,3 +84,6 @@ Bitwise flag meaning: https://broadinstitute.github.io/picard/explain-flags.html
 
 5. Practice writing bash script to run the alignment and dedup steps on both genotypes. To encourage organization and reproducibility, make a directory to keep your script(s) in and run from there :)
 
+## Answers:
+
+In `/scratch/bio373_2020/data/SNPcalling/answers/mapping.txt`
